@@ -6,10 +6,14 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-600: oklch(0.577 0.245 27.325);
+    --color-orange-600: oklch(0.646 0.222 41.116);
+    --color-orange-700: oklch(0.553 0.195 38.402);
     --color-green-900: oklch(0.393 0.095 152.535);
     --color-teal-500: oklch(0.704 0.14 182.503);
-    --color-sky-600: oklch(0.588 0.158 241.966);
-    --color-blue-400: oklch(0.707 0.165 254.624);
+    --color-sky-400: oklch(0.746 0.16 232.661);
+    --color-blue-600: oklch(0.546 0.245 262.881);
+    --color-purple-700: oklch(0.496 0.265 301.924);
     --color-white: #fff;
     --spacing: 0.25rem;
     --text-3xl: 1.875rem;
@@ -168,17 +172,20 @@
   .mt-15 {
     margin-top: calc(var(--spacing) * 15);
   }
+  .box-border {
+    box-sizing: border-box;
+  }
   .flex {
     display: flex;
   }
   .grid {
     display: grid;
   }
-  .h-9 {
-    height: calc(var(--spacing) * 9);
+  .table {
+    display: table;
   }
-  .h-100 {
-    height: calc(var(--spacing) * 100);
+  .h-\[500px\] {
+    height: 500px;
   }
   .h-full {
     height: 100%;
@@ -186,14 +193,17 @@
   .max-h-screen {
     max-height: 100vh;
   }
-  .w-9 {
-    width: calc(var(--spacing) * 9);
-  }
   .w-\[500px\] {
     width: 500px;
   }
   .max-w-screen {
     max-width: 100vw;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .resize {
+    resize: both;
   }
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -210,18 +220,28 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
-  .rounded-full {
-    border-radius: calc(infinity * 1px);
-  }
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
-  .border-3 {
+  .border {
     border-style: var(--tw-border-style);
-    border-width: 3px;
+    border-width: 1px;
   }
-  .border-blue-400 {
-    border-color: var(--color-blue-400);
+  .border-4 {
+    border-style: var(--tw-border-style);
+    border-width: 4px;
+  }
+  .border-t-orange-700 {
+    border-top-color: var(--color-orange-700);
+  }
+  .border-r-blue-600 {
+    border-right-color: var(--color-blue-600);
+  }
+  .border-b-purple-700 {
+    border-bottom-color: var(--color-purple-700);
+  }
+  .border-l-red-600 {
+    border-left-color: var(--color-red-600);
   }
   .bg-green-900 {
     background-color: var(--color-green-900);
@@ -250,11 +270,83 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .text-sky-600 {
-    color: var(--color-sky-600);
+  .text-sky-400 {
+    color: var(--color-sky-400);
   }
   .text-teal-500 {
     color: var(--color-teal-500);
+  }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+}
+.circle {
+  height: calc(var(--spacing) * 12);
+  width: calc(var(--spacing) * 12);
+  border-radius: calc(infinity * 1px);
+  border-style: var(--tw-border-style);
+  border-width: 6px;
+  border-top-color: var(--color-blue-600);
+  border-right-color: var(--color-orange-700);
+  border-bottom-color: var(--color-red-600);
+  border-left-color: var(--color-purple-700);
+}
+.cross {
+  position: relative;
+  height: calc(var(--spacing) * 12);
+  width: calc(var(--spacing) * 12);
+  rotate: 45deg;
+  &::before {
+    content: var(--tw-content);
+    position: absolute;
+  }
+  &::before {
+    content: var(--tw-content);
+    left: 50%;
+  }
+  &::before {
+    content: var(--tw-content);
+    margin-left: -15%;
+  }
+  &::before {
+    content: var(--tw-content);
+    height: 100%;
+  }
+  &::before {
+    content: var(--tw-content);
+    width: 30%;
+  }
+  &::before {
+    content: var(--tw-content);
+    background-color: var(--color-orange-600);
+  }
+  &::after {
+    content: var(--tw-content);
+    position: absolute;
+  }
+  &::after {
+    content: var(--tw-content);
+    top: 50%;
+  }
+  &::after {
+    content: var(--tw-content);
+    margin-top: -15%;
+  }
+  &::after {
+    content: var(--tw-content);
+    height: 30%;
+  }
+  &::after {
+    content: var(--tw-content);
+    width: 100%;
+  }
+  &::after {
+    content: var(--tw-content);
+    background-color: var(--color-blue-600);
   }
 }
 @property --tw-border-style {
@@ -264,5 +356,15 @@
 }
 @property --tw-font-weight {
   syntax: "*";
+  inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-content {
+  syntax: "*";
+  initial-value: "";
   inherits: false;
 }

@@ -1,1 +1,8 @@
 @import "tailwindcss";
+.circle{
+@apply h-12 w-12 rounded-full border-6 border-t-blue-600 border-l-purple-700 border-r-orange-700 border-b-red-600;
+}
+.cross{
+    @apply h-12 w-12 relative  rotate-45 before:absolute before:bg-orange-600 before:left-[50%] before:w-[30%] before:h-[100%] before:ml-[-15%] after:absolute after:bg-blue-600 after:top-[50%] after:h-[30%] after:w-[100%] after:mt-[-15%];
+     
+}
