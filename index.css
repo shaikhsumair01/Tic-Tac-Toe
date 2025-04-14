@@ -1,4 +1,27 @@
 @import "tailwindcss";
+.gamearea{
+    @apply grid grid-cols-3 gap-4 justify-center items-center h-[500px] w-[500px];
+}
+.btn {
+    @apply font-bold py-2 px-4 rounded;
+  }
+  .btn-blue {
+    @apply bg-blue-500 text-white;
+  }
+  .btn-blue:hover {
+      @apply bg-blue-700;
+    }
+    .btn-black {
+      @apply bg-black text-white;
+    }
+    .btn-black:hover {
+        @apply bg-white text-black;
+      }
+
+
+.square{
+    @apply bg-white h-[150px] w-[150px] rounded-lg border-t-orange-700 border-b-purple-700 border-l-red-600 border-r-blue-600 border-4 flex items-center justify-center box-border;
+}
 .circle{
 @apply h-12 w-12 rounded-full border-6 border-t-blue-600 border-l-purple-700 border-r-orange-700 border-b-red-600;
 }
